@@ -1,0 +1,50 @@
+html * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue';
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.border {
+  border: 1px solid black;
+  height: 1176px;
+  width: 1560px;
+}
+
+ul {
+  clear: both;
+  list-style-type: none;
+}
+
+li {
+  display: block;
+  float: left;
+  height: 168px;
+  width: 120px;
+}
+
+.spades, .clubs {
+  color: black;
+}
+
+.hearts, .diamonds {
+  color: red;
+}
+
+.clubs.blue {
+  color: blue;
+}
+
+.diamonds.green {
+  color: green;
+}
+
+.rank, .suit {
+  width: 40px;
+  text-align: center;
+}
+
