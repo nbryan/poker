@@ -1,22 +1,97 @@
-html * {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
-}
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
 
 body {
-  background-color: maroon;
-}
-
-#aspect-ratio {
-  background-color: maroon;
-  /* Height and width will be set by JavaScript. */
-  min-width: 320px;
-  min-height: 180px;
-}
+  background-color: #4a4a4a;
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 17px;
+  font-weight: 100;
+  letter-spacing: 1px; }
 
 #table {
-  background-color: green;
-  border-radius: 50%;
-  height: 100%;
-  width: 100%;
-}
+  margin: 0 auto;
+  position: relative;
+  min-width: 320px;
+  min-height: 240px;
+  max-width: 1024px;
+  max-height: 768px; }
+
+.player .info {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  height: 60px;
+  width: 220px; }
+.player .avatar, .player .name, .player .chips {
+  display: block; }
+.player .name, .player .chips {
+  font-size: 16px;
+  line-height: 30px;
+  margin-left: 60px;
+  padding: 0 0.5em;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden; }
+.player .avatar {
+  float: left;
+  border-right: 1px solid white;
+  height: 60px;
+  width: 60px; }
+.player .name {
+  border-bottom: 1px solid white;
+  font-weight: 300; }
+
+#table-background {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #0bd138;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  height: 60%;
+  width: 80%; }

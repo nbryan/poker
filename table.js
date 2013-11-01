@@ -1,6 +1,7 @@
 $(document).ready(function() {
-  var desiredAspectRatio = 16 / 9,
-    aspectRatioDiv = $('#aspect-ratio');
+  var desiredAspectRatio = 4 / 3,
+    table = $('#table'),
+    tableBackground = $('#table-background');
 
   $(window).resize(function(e) {
     var width = $(window).width(),
@@ -8,16 +9,19 @@ $(document).ready(function() {
       actualAspectRatio = width / height;
 
     if (actualAspectRatio > desiredAspectRatio) {
-      aspectRatioDiv.css({
+      table.css({
         'width': height * desiredAspectRatio,
         'height': height
       });
     } else {
-      aspectRatioDiv.css({
+      table.css({
         'width': width,
         'height': width / desiredAspectRatio
       });
     }
+    tableBackground.css({
+      'border-radius': tableBackground.height() / 2
+    });
   });
 
   $(window).resize();

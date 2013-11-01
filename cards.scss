@@ -1,52 +1,66 @@
 html * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
   font-family: 'Helvetica Neue';
   font-size: 34px;
-  line-height: 1.2; }
+  line-height: 1.2;
+}
 
 .border {
   border: 1px solid black;
   height: 1008px;
-  width: 1560px; }
+  width: 1560px;
+}
 
 ul {
   clear: both;
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 .spades, .clubs {
-  color: black; }
+  color: black;
+}
 
 .hearts, .diamonds {
-  color: red; }
+  color: red;
+}
 
 .clubs.blue {
-  color: blue; }
+  color: blue;
+}
 
 .diamonds.green {
-  color: green; }
+  color: green;
+}
 
 li {
   display: block;
   float: left;
   position: relative;
   height: 168px;
-  width: 120px; }
+  width: 120px;
+}
 
 .top, .bottom {
-  position: absolute; }
+  position: absolute;
+}
 
 .top {
   top: 0;
-  left: 0; }
+  left: 0;
+}
 
 .bottom {
   bottom: 0;
   right: 0;
-  -webkit-transform: rotate(180deg); }
+  -webkit-transform: rotate(180deg);
+}
 
 .rank, .suit {
   width: 40px;
-  text-align: center; }
+  text-align: center;
+}
+

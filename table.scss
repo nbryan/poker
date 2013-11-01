@@ -1,0 +1,86 @@
+@import 'compass/css3';
+
+@import 'compass/reset';
+
+body {
+  background-color: #4a4a4a;
+  color: white;
+  font: {
+    family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    size: 17px;
+    weight: 100;
+  }
+  letter-spacing: 1px;
+}
+
+$aspect-ratio: 4 / 3;
+
+#table {
+  $min-width: 320px;
+  $max-width: 1024px;
+
+  //  background-color: blue;
+  margin: 0 auto;
+  position: relative;
+
+  // Actual height and width will be set by JavaScript.
+  min-width: $min-width;
+  min-height: $min-width / $aspect-ratio;
+  max-width: $max-width;
+  max-height: $max-width / $aspect-ratio;
+}
+
+//#players {
+//  z-index: 2;
+//}
+
+.player {
+  //  z-index: 1;
+
+  .info {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    height: 60px;
+    width: 220px;
+  }
+
+  .avatar, .name, .chips {
+    display: block;
+  }
+  
+  .name, .chips {
+    font-size: 16px;
+    line-height: 30px;
+    margin-left: 60px;
+    padding: 0 0.5em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .avatar {
+    float: left;
+    border-right: 1px solid white;
+    height: 60px;
+    width: 60px;
+  }
+
+  .name {
+    border-bottom: 1px solid white;
+    font-weight: 300;
+  }
+}
+
+#table-background {
+  @include box-sizing(border-box);
+
+  // Border radius will also bet set in JavaScript.
+  background-color: #0bd138;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  height: 60%;
+  width: 80%;
+}
+
+
