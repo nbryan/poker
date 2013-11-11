@@ -46,12 +46,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 body {
-  background-color: #4a4a4a;
-  color: white;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: white;
+  color: black;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 17px;
-  font-weight: 100;
-  letter-spacing: 1px; }
+  font-weight: 200; }
 
 #table {
   margin: 0 auto;
@@ -61,37 +60,253 @@ body {
   max-width: 1024px;
   max-height: 768px; }
 
-.player .info {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid white;
-  height: 60px;
-  width: 220px; }
-.player .avatar, .player .name, .player .chips {
-  display: block; }
-.player .name, .player .chips {
-  font-size: 16px;
-  line-height: 30px;
-  margin-left: 60px;
-  padding: 0 0.5em;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden; }
+.position {
+  position: relative;
+  width: 180px;
+  height: 120px; }
+  .position .info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(199, 199, 204, 0.85);
+    width: 100%;
+    height: 60px;
+    z-index: 1; }
+  .position .cards {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; }
+    .position .cards .card {
+      position: absolute; }
+      .position .cards .card:nth-child(1):nth-last-child(1) {
+        left: 60px; }
+      .position .cards .card:nth-child(1):nth-last-child(2) {
+        left: 48px; }
+      .position .cards .card:nth-child(2):nth-last-child(1) {
+        left: 72px; }
+      .position .cards .card:nth-child(1):nth-last-child(3) {
+        left: 36.0px; }
+      .position .cards .card:nth-child(2):nth-last-child(2) {
+        left: 60.0px; }
+      .position .cards .card:nth-child(3):nth-last-child(1) {
+        left: 84px; }
+      .position .cards .card:nth-child(1):nth-last-child(4) {
+        left: 24px; }
+      .position .cards .card:nth-child(2):nth-last-child(3) {
+        left: 48px; }
+      .position .cards .card:nth-child(3):nth-last-child(2) {
+        left: 72px; }
+      .position .cards .card:nth-child(4):nth-last-child(1) {
+        left: 96px; }
+      .position .cards .card:nth-child(1):nth-last-child(5) {
+        left: 12px; }
+      .position .cards .card:nth-child(2):nth-last-child(4) {
+        left: 36px; }
+      .position .cards .card:nth-child(3):nth-last-child(3) {
+        left: 60px; }
+      .position .cards .card:nth-child(4):nth-last-child(2) {
+        left: 84px; }
+      .position .cards .card:nth-child(5):nth-last-child(1) {
+        left: 108px; }
+
 .player .avatar {
+  display: block;
   float: left;
-  border-right: 1px solid white;
   height: 60px;
   width: 60px; }
+.player .name, .player .chips {
+  font-size: 14px;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 60px;
+  padding: 0 0.25em;
+  text-align: center;
+  white-space: nowrap; }
 .player .name {
-  border-bottom: 1px solid white;
-  font-weight: 300; }
-
-#table-background {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  border-bottom: 1px solid #aaa9ae;
+  font-weight: 400; }
+
+.card {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-origin: border-box;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 60px;
+  height: 80px;
+  background-image: url("cards.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 780px 560px; }
+  .card.ace.spades {
+    background-position: 0px -80px; }
+  .card.ace.hearts {
+    background-position: 0px -160px; }
+  .card.ace.diamonds {
+    background-position: 0px -240px; }
+  .card.ace.clubs {
+    background-position: 0px -320px; }
+  .card.two.spades {
+    background-position: -60px -80px; }
+  .card.two.hearts {
+    background-position: -60px -160px; }
+  .card.two.diamonds {
+    background-position: -60px -240px; }
+  .card.two.clubs {
+    background-position: -60px -320px; }
+  .card.three.spades {
+    background-position: -120px -80px; }
+  .card.three.hearts {
+    background-position: -120px -160px; }
+  .card.three.diamonds {
+    background-position: -120px -240px; }
+  .card.three.clubs {
+    background-position: -120px -320px; }
+  .card.four.spades {
+    background-position: -180px -80px; }
+  .card.four.hearts {
+    background-position: -180px -160px; }
+  .card.four.diamonds {
+    background-position: -180px -240px; }
+  .card.four.clubs {
+    background-position: -180px -320px; }
+  .card.five.spades {
+    background-position: -240px -80px; }
+  .card.five.hearts {
+    background-position: -240px -160px; }
+  .card.five.diamonds {
+    background-position: -240px -240px; }
+  .card.five.clubs {
+    background-position: -240px -320px; }
+  .card.six.spades {
+    background-position: -300px -80px; }
+  .card.six.hearts {
+    background-position: -300px -160px; }
+  .card.six.diamonds {
+    background-position: -300px -240px; }
+  .card.six.clubs {
+    background-position: -300px -320px; }
+  .card.seven.spades {
+    background-position: -360px -80px; }
+  .card.seven.hearts {
+    background-position: -360px -160px; }
+  .card.seven.diamonds {
+    background-position: -360px -240px; }
+  .card.seven.clubs {
+    background-position: -360px -320px; }
+  .card.eight.spades {
+    background-position: -420px -80px; }
+  .card.eight.hearts {
+    background-position: -420px -160px; }
+  .card.eight.diamonds {
+    background-position: -420px -240px; }
+  .card.eight.clubs {
+    background-position: -420px -320px; }
+  .card.nine.spades {
+    background-position: -480px -80px; }
+  .card.nine.hearts {
+    background-position: -480px -160px; }
+  .card.nine.diamonds {
+    background-position: -480px -240px; }
+  .card.nine.clubs {
+    background-position: -480px -320px; }
+  .card.ten.spades {
+    background-position: -540px -80px; }
+  .card.ten.hearts {
+    background-position: -540px -160px; }
+  .card.ten.diamonds {
+    background-position: -540px -240px; }
+  .card.ten.clubs {
+    background-position: -540px -320px; }
+  .card.jack.spades {
+    background-position: -600px -80px; }
+  .card.jack.hearts {
+    background-position: -600px -160px; }
+  .card.jack.diamonds {
+    background-position: -600px -240px; }
+  .card.jack.clubs {
+    background-position: -600px -320px; }
+  .card.queen.spades {
+    background-position: -660px -80px; }
+  .card.queen.hearts {
+    background-position: -660px -160px; }
+  .card.queen.diamonds {
+    background-position: -660px -240px; }
+  .card.queen.clubs {
+    background-position: -660px -320px; }
+  .card.king.spades {
+    background-position: -720px -80px; }
+  .card.king.hearts {
+    background-position: -720px -160px; }
+  .card.king.diamonds {
+    background-position: -720px -240px; }
+  .card.king.clubs {
+    background-position: -720px -320px; }
+
+.four-color-deck .card.ace.diamonds {
+  background-position: 0px -400px; }
+.four-color-deck .card.ace.clubs {
+  background-position: 0px -480px; }
+.four-color-deck .card.two.diamonds {
+  background-position: -60px -400px; }
+.four-color-deck .card.two.clubs {
+  background-position: -60px -480px; }
+.four-color-deck .card.three.diamonds {
+  background-position: -120px -400px; }
+.four-color-deck .card.three.clubs {
+  background-position: -120px -480px; }
+.four-color-deck .card.four.diamonds {
+  background-position: -180px -400px; }
+.four-color-deck .card.four.clubs {
+  background-position: -180px -480px; }
+.four-color-deck .card.five.diamonds {
+  background-position: -240px -400px; }
+.four-color-deck .card.five.clubs {
+  background-position: -240px -480px; }
+.four-color-deck .card.six.diamonds {
+  background-position: -300px -400px; }
+.four-color-deck .card.six.clubs {
+  background-position: -300px -480px; }
+.four-color-deck .card.seven.diamonds {
+  background-position: -360px -400px; }
+.four-color-deck .card.seven.clubs {
+  background-position: -360px -480px; }
+.four-color-deck .card.eight.diamonds {
+  background-position: -420px -400px; }
+.four-color-deck .card.eight.clubs {
+  background-position: -420px -480px; }
+.four-color-deck .card.nine.diamonds {
+  background-position: -480px -400px; }
+.four-color-deck .card.nine.clubs {
+  background-position: -480px -480px; }
+.four-color-deck .card.ten.diamonds {
+  background-position: -540px -400px; }
+.four-color-deck .card.ten.clubs {
+  background-position: -540px -480px; }
+.four-color-deck .card.jack.diamonds {
+  background-position: -600px -400px; }
+.four-color-deck .card.jack.clubs {
+  background-position: -600px -480px; }
+.four-color-deck .card.queen.diamonds {
+  background-position: -660px -400px; }
+.four-color-deck .card.queen.clubs {
+  background-position: -660px -480px; }
+.four-color-deck .card.king.diamonds {
+  background-position: -720px -400px; }
+.four-color-deck .card.king.clubs {
+  background-position: -720px -480px; }
+
+#table-background {
   background-color: #0bd138;
   position: absolute;
   top: 20%;
   left: 10%;
   height: 60%;
-  width: 80%; }
+  width: 80%;
+  z-index: -1; }

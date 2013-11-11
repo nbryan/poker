@@ -1,25 +1,26 @@
 @import 'compass/css3';
+@import 'variables';
+
+$aspect-ratio: 4 / 3;
+$grid-width: 60px;
 
 @import 'compass/reset';
 
 body {
-  background-color: #4a4a4a;
-  color: white;
+  // background-color: #c7c7cc;
+  background: white;
+  color: black;
   font: {
     family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     size: 17px;
-    weight: 100;
+    weight: 200;
   }
-  letter-spacing: 1px;
 }
-
-$aspect-ratio: 4 / 3;
 
 #table {
   $min-width: 320px;
   $max-width: 1024px;
 
-  //  background-color: blue;
   margin: 0 auto;
   position: relative;
 
@@ -30,50 +31,119 @@ $aspect-ratio: 4 / 3;
   max-height: $max-width / $aspect-ratio;
 }
 
-//#players {
-//  z-index: 2;
-//}
+$card-aspect-ratio: 3 / 4;
+$card-width: $grid-width;
+$card-height: $card-width / $card-aspect-ratio;
+$position-width: $grid-width * 3;
+$position-height: $grid-width * 2;
 
-.player {
-  //  z-index: 1;
+.position {
+  position: relative;
+  width: $position-width;
+  height: $position-height;
 
   .info {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid white;
-    height: 60px;
-    width: 220px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(#c7c7cc, 0.85);
+    // background: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: $grid-width;
+    z-index: 1;
   }
 
-  .avatar, .name, .chips {
-    display: block;
+  .cards {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    .card {
+      position: absolute;
+
+      $card-overlap: 0.6;
+
+      @for $number-of-cards from 1 through 5 {
+        $cards-width: ((1 - $card-overlap) * $number-of-cards + $card-overlap) * $card-width;
+
+        @for $card-index from 1 through $number-of-cards {
+          $reverse-index: $number-of-cards - $card-index + 1;
+
+          &:nth-child(#{$card-index}):nth-last-child(#{$reverse-index}) {
+            left: ($position-width - $cards-width) / 2 + $card-width * (1 - $card-overlap) * ($card-index - 1);
+          }
+        }
+      }
+    }
   }
-  
+}
+
+.player {
+  .avatar {
+    display: block;
+    float: left;
+    height: $grid-width;
+    width: $grid-width;
+  }
+
   .name, .chips {
-    font-size: 16px;
-    line-height: 30px;
-    margin-left: 60px;
-    padding: 0 0.5em;
+    font-size: 14px;
+    width: $grid-width * 2;
+    height: $grid-width / 2;
+    line-height: $grid-width / 2;
+    margin-left: $grid-width;
+    padding: 0 0.25em;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden;
-  }
-
-  .avatar {
-    float: left;
-    border-right: 1px solid white;
-    height: 60px;
-    width: 60px;
   }
 
   .name {
-    border-bottom: 1px solid white;
-    font-weight: 300;
+    @include box-sizing(border-box);
+
+    border-bottom: 1px solid #aaa9ae;
+    font-weight: 400;
+  }
+}
+
+.card {
+  @include box-sizing(border-box);
+
+  background-origin: border-box;
+  border: 1px solid black;
+  border-radius: $grid-width / 7.5;
+  width: $card-width;
+  height: $card-height;
+
+  background: {
+    image: url('cards.png');
+    position: 0 0;
+    repeat: no-repeat;
+    // Actual image is 2x resolution for retina displays. Size sets it in logical pixels.
+    size: $card-width * 13 $card-height * 7; // 13 ranks by 1 face-down + 4 suits + 2 alternate suit colors
+  }
+
+  // Nested loop because Firefox doesn't support background-position-(x|y).
+  @for $i from 0 to length($ranks) {
+    @for $j from 0 to length($suits) {
+      &.#{nth($ranks, $i + 1)}.#{nth($suits, $j + 1)} {
+        background-position: ($i * $card-width * -1) (($j + 1) * $card-height * -1);
+      }
+    }
+  }
+}
+
+.four-color-deck .card {
+  @for $i from 0 to length($ranks) {
+    @for $j from 2 to length($suits) {
+      &.#{nth($ranks, $i + 1)}.#{nth($suits, $j + 1)} {
+        background-position: ($i * $card-width * -1) (($j + 3) * $card-height * -1);
+      }
+    }
   }
 }
 
 #table-background {
-  @include box-sizing(border-box);
-
   // Border radius will also bet set in JavaScript.
   background-color: #0bd138;
   position: absolute;
@@ -81,6 +151,5 @@ $aspect-ratio: 4 / 3;
   left: 10%;
   height: 60%;
   width: 80%;
+  z-index: -1;
 }
-
-
